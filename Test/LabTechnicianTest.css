@@ -1,0 +1,44 @@
+using Dentist1;
+
+namespace LabTechnicianTest
+{
+    [TestFixture]
+    public class LabTechnicianTest
+    {
+        private readonly LabTechnician labTechnician;
+
+        public LabTechnicianTest()
+        {
+            labTechnician = new LabTechnician(
+                "Jane", "Doe", new DateTime(1990, 1, 1), "Female", "123 Main St", 5551234567, "jane.doe@example.com",
+                "L123", new DateTime(2020, 1, 1), 50000, "9 AM - 5 PM", true, "Active", "Level 1",
+                "LN123", "Dental Lab Tech", 5, "Day", "X-Ray Machines; Dental Scanners"
+            );
+        }
+
+        [Test]
+        public void TestLabTechnicianInitialization()
+        {
+            // Check that the LabTechnician is initialized with the correct values
+            Assert.That(labTechnician.FirstName, Is.EqualTo("Jane"));
+            Assert.That(labTechnician.LastName, Is.EqualTo("Doe"));
+            Assert.That(labTechnician.DateOfBirth, Is.EqualTo(new DateTime(1990, 1, 1)));
+            Assert.That(labTechnician.Gender, Is.EqualTo("Female"));
+            Assert.That(labTechnician.Address, Is.EqualTo("123 Main St"));
+            Assert.That(labTechnician.PhoneNumber, Is.EqualTo(5551234567));
+            Assert.That(labTechnician.Email, Is.EqualTo("jane.doe@example.com"));
+            Assert.That(labTechnician.StaffID, Is.EqualTo("L123"));
+            Assert.That(labTechnician.HireDate, Is.EqualTo(new DateTime(2020, 1, 1)));
+            Assert.That(labTechnician.Salary, Is.EqualTo(50000));
+            Assert.That(labTechnician.WorkingHours, Is.EqualTo("9 AM - 5 PM"));
+            Assert.That(labTechnician.IsFullTime, Is.True);
+            Assert.That(labTechnician.Status, Is.EqualTo("Active"));
+            Assert.That(labTechnician.AccessLevel, Is.EqualTo("Level 1"));
+            Assert.That(labTechnician.LicenseNumber, Is.EqualTo("LN123"));
+            Assert.That(labTechnician.Specialization, Is.EqualTo("Dental Lab Tech"));
+            Assert.That(labTechnician.YearsOfExperience, Is.EqualTo(5));
+            Assert.That(labTechnician.WorkShift, Is.EqualTo("Day"));
+            Assert.That(labTechnician.LaboratoryEquipmentSkills, Is.EqualTo("X-Ray Machines; Dental Scanners"));
+        }
+    }
+}

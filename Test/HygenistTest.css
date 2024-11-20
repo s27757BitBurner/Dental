@@ -1,0 +1,44 @@
+using Dentist1;
+
+namespace HygienistTest
+{
+    [TestFixture]
+    public class HygienistTest
+    {
+        private readonly Hygienist hygienist;
+
+        public HygienistTest()
+        {
+            hygienist = new Hygienist(
+                "John", "Doe", new DateTime(1990, 1, 1), "Male", "123 Main St", 1234567890, 
+                "john.doe@example.com", "HYG123", new DateTime(2020, 1, 1), 50000, 
+                "9 AM - 5 PM", true, "Active", "User", 
+                "L12345", "Dental Hygiene", 5, true
+            );
+        }
+
+        [Test]
+        public void TestHygienistInitialization()
+        {
+            // Check that the Hygienist is initialized with the correct values
+            Assert.That(hygienist.FirstName, Is.EqualTo("John"));
+            Assert.That(hygienist.LastName, Is.EqualTo("Doe"));
+            Assert.That(hygienist.DateOfBirth, Is.EqualTo(new DateTime(1990, 1, 1)));
+            Assert.That(hygienist.Gender, Is.EqualTo("Male"));
+            Assert.That(hygienist.Address, Is.EqualTo("123 Main St"));
+            Assert.That(hygienist.PhoneNumber, Is.EqualTo(1234567890));
+            Assert.That(hygienist.Email, Is.EqualTo("john.doe@example.com"));
+            Assert.That(hygienist.StaffID, Is.EqualTo("HYG123"));
+            Assert.That(hygienist.HireDate, Is.EqualTo(new DateTime(2020, 1, 1)));
+            Assert.That(hygienist.Salary, Is.EqualTo(50000));
+            Assert.That(hygienist.WorkingHours, Is.EqualTo("9 AM - 5 PM"));
+            Assert.That(hygienist.IsFullTime, Is.True);
+            Assert.That(hygienist.Status, Is.EqualTo("Active"));
+            Assert.That(hygienist.AccessLevel, Is.EqualTo("User"));
+            Assert.That(hygienist.LicenseNumber, Is.EqualTo("L12345"));
+            Assert.That(hygienist.Specialization, Is.EqualTo("Dental Hygiene"));
+            Assert.That(hygienist.YearsOfExperience, Is.EqualTo(5));
+            Assert.That(hygienist.PerformCleaning, Is.True);
+        }
+    }
+}

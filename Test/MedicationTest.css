@@ -1,0 +1,22 @@
+using Dentist1;
+
+namespace MedicationTest
+{
+    [TestFixture]
+    public class MedicationTest
+    {
+        private readonly Medication medication;
+
+        public MedicationTest()
+        {
+            medication = new Medication(1, "Ibuprofen");
+        }
+
+        [Test]
+        public void TestMedicationInitialization()
+        {
+            Assert.That(medication.IdMedication, Is.EqualTo(1));
+            Assert.That(medication.Name, Is.EqualTo("Ibuprofen"));
+        }
+    }
+}

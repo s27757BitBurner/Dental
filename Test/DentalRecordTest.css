@@ -1,0 +1,35 @@
+using Dentist1;
+
+namespace DentalRecordTest
+{
+    [TestFixture]
+    public class DentalRecordTest
+    {
+        private readonly DentalRecord dentalRecord;
+
+        public DentalRecordTest()
+        {
+            // Initialize a Patient object to associate with the DentalRecord
+            var patient = new Patient("P001", "Jane", "Doe", new DateTime(1990, 6, 1), "Female", "123 Main St", 5551234567, "jane.doe@example.com");
+
+            // Initialize a DentalRecord object with sample data
+            dentalRecord = new DentalRecord(
+                "R001",
+                DateTime.Now,
+                DateTime.Now,
+                patient
+            );
+        }
+
+        [Test]
+        public void TestDentalRecordInitialization()
+        {
+            Assert.That(dentalRecord.RecordID, Is.EqualTo("R001"));
+            Assert.That(dentalRecord.DateCreated, Is.Not.Null);
+            Assert.That(dentalRecord.LastUpdated, Is.Not.Null);
+            Assert.That(dentalRecord.BelongsToPatient, Is.Not.Null);
+            Assert.That(dentalRecord.BelongsToPatient.FirstName, Is.EqualTo("Jane"));
+            Assert.That(dentalRecord.BelongsToPatient.LastName, Is.EqualTo("Doe"));
+        }
+    }
+}

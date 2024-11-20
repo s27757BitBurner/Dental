@@ -1,0 +1,22 @@
+using Dentist1;
+
+namespace EquipmentTest
+{
+    [TestFixture]
+    public class EquipmentTest
+    {
+        private readonly Equipment equipment;
+
+        public EquipmentTest()
+        {
+            equipment = new Equipment(1, "Dental Chair");
+        }
+
+        [Test]
+        public void TestEquipmentInitialization()
+        {
+            Assert.That(equipment.IdEquipment, Is.EqualTo(1));
+            Assert.That(equipment.Name, Is.EqualTo("Dental Chair"));
+        }
+    }
+}

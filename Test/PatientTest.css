@@ -1,0 +1,32 @@
+using Dentist1;
+
+namespace PatientTest
+{
+    [TestFixture]
+    public class PatientTest
+    {
+        private readonly Patient patient;
+
+        public PatientTest()
+        {
+            patient = new Patient("John", "Doe", new DateTime(1990, 1, 1), "Male", "123 Main St", 1234567890, "john.doe@example.com",
+                                  "P123", "Health Insurance Co", "INS123456");
+        }
+
+        [Test]
+        public void TestPatientInitialization()
+        {
+            // Check that the Patient is initialized with the correct values
+            Assert.That(patient.PatientID, Is.EqualTo("P123"));
+            Assert.That(patient.InsuranceProvider, Is.EqualTo("Health Insurance Co"));
+            Assert.That(patient.InsuranceNumber, Is.EqualTo("INS123456"));
+            Assert.That(patient.FirstName, Is.EqualTo("John"));
+            Assert.That(patient.LastName, Is.EqualTo("Doe"));
+            Assert.That(patient.DateOfBirth, Is.EqualTo(new DateTime(1990, 1, 1)));
+            Assert.That(patient.Gender, Is.EqualTo("Male"));
+            Assert.That(patient.Address, Is.EqualTo("123 Main St"));
+            Assert.That(patient.PhoneNumber, Is.EqualTo(1234567890));
+            Assert.That(patient.Email, Is.EqualTo("john.doe@example.com"));
+        }
+    }
+}

@@ -1,0 +1,39 @@
+using Dentist1;
+
+namespace PaymentTest
+{
+    [TestFixture]
+    public class PaymentTest
+    {
+        private Payment payment;
+        private Bill bill;
+
+        [SetUp]
+        public void Setup()
+        {
+            bill = new Bill(1, 100, DateTime.Now, "Pending");
+            
+            payment = new Payment(1, "Credit Card", 123, 456, 80, 20, bill);
+        }
+
+        [Test]
+        public void TestPaymentInitialization()
+        {
+            Assert.That(payment.PaymentID, Is.EqualTo(1));
+            Assert.That(payment.Method, Is.EqualTo("Credit Card"));
+            Assert.That(payment.InsuranceId, Is.EqualTo(123));
+            Assert.That(payment.PatientID, Is.EqualTo(456));
+            Assert.That(payment.InsuranceCoveredAmount, Is.EqualTo(80));
+            Assert.That(payment.PatientPaidAmount, Is.EqualTo(20));
+            Assert.That(payment.AssociatedBill, Is.EqualTo(bill));
+        }
+
+        [Test]
+        public void TestPaymentAssociationWithBill()
+        {
+
+            Assert.That(bill.Payments.Count, Is.EqualTo(1)); // Assuming Payments is a List<Payment> in Bill
+            Assert.That(bill.Payments[0], Is.EqualTo(payment));
+        }
+    }
+}

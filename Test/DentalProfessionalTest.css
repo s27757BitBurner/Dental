@@ -1,0 +1,42 @@
+using Dentist1;
+
+namespace DentalProfessionalTest
+{
+    [TestFixture]
+    public class DentalProfessionalTest
+    {
+        private readonly DentalProfessional dentalProfessional;
+
+        public DentalProfessionalTest()
+        {
+            dentalProfessional = new DentalProfessional(
+                "John", "Smith", new DateTime(1985, 5, 15), "Male", "456 Elm St", 5559876543, "john.smith@example.com",
+                "DP456", new DateTime(2015, 3, 1), 75000, "8 AM - 4 PM", true, "Active", "Level 2",
+                "LN456", "Orthodontist", 10
+            );
+        }
+
+        [Test]
+        public void TestDentalProfessionalInitialization()
+        {
+            // Check that the DentalProfessional is initialized with the correct values
+            Assert.That(dentalProfessional.FirstName, Is.EqualTo("John"));
+            Assert.That(dentalProfessional.LastName, Is.EqualTo("Smith"));
+            Assert.That(dentalProfessional.DateOfBirth, Is.EqualTo(new DateTime(1985, 5, 15)));
+            Assert.That(dentalProfessional.Gender, Is.EqualTo("Male"));
+            Assert.That(dentalProfessional.Address, Is.EqualTo("456 Elm St"));
+            Assert.That(dentalProfessional.PhoneNumber, Is.EqualTo(5559876543));
+            Assert.That(dentalProfessional.Email, Is.EqualTo("john.smith@example.com"));
+            Assert.That(dentalProfessional.StaffID, Is.EqualTo("DP456"));
+            Assert.That(dentalProfessional.HireDate, Is.EqualTo(new DateTime(2015, 3, 1)));
+            Assert.That(dentalProfessional.Salary, Is.EqualTo(75000));
+            Assert.That(dentalProfessional.WorkingHours, Is.EqualTo("8 AM - 4 PM"));
+            Assert.That(dentalProfessional.IsFullTime, Is.True);
+            Assert.That(dentalProfessional.Status, Is.EqualTo("Active"));
+            Assert.That(dentalProfessional.AccessLevel, Is.EqualTo("Level 2"));
+            Assert.That(dentalProfessional.LicenseNumber, Is.EqualTo("LN456"));
+            Assert.That(dentalProfessional.Specialization, Is.EqualTo("Orthodontist"));
+            Assert.That(dentalProfessional.YearsOfExperience, Is.EqualTo(10));
+        }
+    }
+}
